@@ -1,0 +1,23 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class MediaPage extends BasePage {
+
+    @FindBy(xpath = "//div[@class='MuiStack-root css-1ex1g4g']/.//div[@class='image-item MuiBox-root css-0'][1]")
+    WebElement selectMediaButton;
+
+    @FindBy(xpath = "//*[text()='Add Media']")
+    WebElement addMediaButton;
+
+    public MediaPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void selectAndAddMedia() {
+        selectMediaButton.click();
+        addMediaButton.click();
+    }
+}

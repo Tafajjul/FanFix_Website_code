@@ -1,0 +1,321 @@
+package pages;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+public class NewPostPage extends BasePage {
+
+	@FindBy(xpath = "//button[@data-testid='pill-button-new-post-ds']")
+    WebElement newPost;
+	
+	@FindBy(xpath = "//button[.='Free Post']")
+    WebElement FreePost;
+	
+	@FindBy(xpath = "//div[@data-testid='post-caption-input-c']/.//div/.//textarea[@placeholder=\"What's on your mind?\"]")
+    WebElement postField;
+
+	
+	@FindBy(xpath = "//div[@class=\"MuiBox-root css-1u5aujn\"]/.//p[.='Now']")
+    WebElement nowDropDown;
+	
+	@FindBy(xpath = "(//div[@class=\"MuiStack-root css-lmzl00\"])[2]/.//p[.='Custom Time']")
+    WebElement customTime;
+	
+	
+
+     @FindBy(xpath = "(//button[@type=\"button\"])[32]")
+      WebElement selectDate;
+     
+   
+     @FindBy(xpath = "//button[@title='Next month']")
+     WebElement changeMonth;
+     
+     @FindBy(xpath = "//div[@class=\"MuiDayCalendar-weekContainer css-mvmu1r\"]/.//button[.='1']")
+     WebElement selectFirstSept;
+     
+     @FindBy(xpath = "//div[@role=\"group\"]/.//ul/.//li[.='03']")
+     WebElement selectTime1;
+     
+     @FindBy(xpath = "//div[@role='group']/.//ul[@aria-label='Select minutes']/.//li[.='30']")
+     WebElement selectTime2;
+     
+     @FindBy(xpath = "//button[.='OK']")
+     WebElement clickOK;
+     
+     @FindBy(xpath = "//button[@data-testid='pill-button-post-to-profile-ds']")
+     WebElement clickPostToProfile;
+     
+     
+	
+	
+	
+    @FindBy(xpath = "//div[@data-testid=\"post-caption-input-c\"]/.//div/.//textarea[@placeholder=\"What's on your mind?\"]")
+    WebElement postCaptionField;
+
+    @FindBy(xpath = "//div[@data-testid='media-stack-upload-c']")
+    WebElement plusIcon;
+
+    @FindBy(xpath = "//button[@data-testid='pill-button-upload-media-ds']")
+    WebElement uploadMediaButton;
+
+    @FindBy(xpath = "//div[@class='filepond--wrapper']/.//div/.//div/.//span[.=' Browse ']")
+    WebElement browseButton;
+
+    @FindBy(xpath= "//button[.='Continue']")
+    WebElement continueButton;
+
+    
+    //select the media and click on add media button
+    @FindBy(xpath= "//div[@class='MuiStack-root css-1ex1g4g']/.//div[@class='image-item MuiBox-root css-0'][1]")
+    WebElement selectImage;
+    
+    @FindBy(xpath= "//button[@data-testid='pill-button-add-media-ds']")
+    WebElement addMediaButton2;
+    
+    
+    @FindBy(xpath= "(//p[.='Custom'])[1]")
+    WebElement customSubs;
+
+    @FindBy(xpath= "(//p[.='Custom'])[2]")
+    WebElement customNonSubs;
+    
+    @FindBy(xpath= "(//input[@id='custom-sub'])[1]")
+    WebElement customSubsInput;
+  
+    @FindBy(xpath= "(//input[@id='custom-sub'])[2]")
+    WebElement customNonSubsInput;
+
+    @FindBy(xpath= "//button[@data-testid='pill-button-post-to-profile-ds']")
+    WebElement postButton;
+    
+    @FindBy(xpath= "//table[@class='MuiTable-root desktop-table has-actions css-14swh2w']")
+    WebElement userTable;
+    
+    @FindBy(xpath= "//table[@class='MuiTable-root desktop-table has-actions css-14swh2w']/tbody/tr")
+    List<WebElement> tableRows;
+    
+    @FindBy(xpath= "//div[@class='MuiTabs-flexContainer css-k008qs']/.//button[2]/.//a/.//p[.='Posts']")
+    WebElement post;
+  
+
+    public NewPostPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void clickNewPostButton() throws InterruptedException
+    {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-testid='pill-button-new-post-ds']")));
+        
+    	newPost.click();
+    	Thread.sleep(3000);
+    }
+    
+    
+    public void writePostCaption(String caption) throws InterruptedException {
+    	FreePost.click();
+    	postField.click();
+    	postField.sendKeys(caption);
+        Thread.sleep(4000);
+    }
+
+    public void customTimeselect()
+    {
+    	nowDropDown.click();
+    	customTime.click();
+    	
+    }
+    
+    public void customDateselect() throws InterruptedException
+    {
+    	selectDate.click();
+    	Thread.sleep(4000);
+    	
+    }
+   
+    
+	 public void custommonthTimeelect() throws InterruptedException
+	    {
+		 JavascriptExecutor ja=(JavascriptExecutor)driver;
+	    	ja.executeScript("arguments[0].scrollIntoView();", selectFirstSept);
+	    	ja.executeScript("arguments[0].scrollIntoView();", selectTime1);
+	    	ja.executeScript("arguments[0].scrollIntoView();", selectTime2);
+		 changeMonth.click();
+		 System.out.println("navigated to sept month from the calendar");
+		 selectFirstSept.click();
+		//Select s = new Select(selectFirstSept);
+		//s.selectByValue("1");
+		System.out.println("Date selected from the calendar");
+	    	Thread.sleep(4000);
+       selectTime1.click();
+       selectTime2.click();
+       System.out.println("Time 3:30 selected from the calendar");
+   	Thread.sleep(4000);
+	    	}
+    
+	 public void clickOkAndPost() throws InterruptedException
+	 {
+		 clickOK.click();
+		 clickPostToProfile.click();
+		 System.out.println("Clicked on Post button");
+		   	Thread.sleep(4000);
+		 
+	 }
+    
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+    
+    public void clickPlusIcon(){
+    	JavascriptExecutor ja=(JavascriptExecutor)driver;
+    	ja.executeScript("arguments[0].scrollIntoView();", plusIcon);
+        plusIcon.click();
+        uploadMediaButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='filepond--wrapper']/.//div/.//div/.//span[.=' Browse ']")));
+        element.click();
+       // ja.executeScript("arguments[0].click();", browseButton);
+       // browseButton.click();
+    }
+    
+    public void addMedia(String filePath) throws InterruptedException, AWTException {
+        StringSelection upload= new StringSelection(filePath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload, null);
+		Thread.sleep(3000);
+		Robot r= new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+	    r.keyPress(KeyEvent.VK_V);
+	    r.keyPress(KeyEvent.VK_TAB);
+	    r.keyPress(KeyEvent.VK_TAB);
+	    r.keyPress(KeyEvent.VK_ENTER);
+	    r.keyRelease(KeyEvent.VK_CONTROL);
+	    r.keyRelease(KeyEvent.VK_V);
+	    r.keyRelease(KeyEvent.VK_TAB);
+	    r.keyRelease(KeyEvent.VK_TAB);
+	    r.keyRelease(KeyEvent.VK_ENTER);
+        
+       // browseButton.sendKeys(filePath);
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        continueButton.click();
+        Thread.sleep(2000);
+    }
+    
+    public void selectImageToUpload() throws InterruptedException
+    {
+    	selectImage.click();
+    	addMediaButton2.click();
+    	Thread.sleep(3000);
+    }
+    public void clickCustomButton() throws InterruptedException
+    {
+     customSubs.click();
+     customNonSubs.click();
+     Thread.sleep(2000);
+    }
+
+    public void setCustomPrices(String subscriptionPrice, String nonSubscriptionPrice) throws InterruptedException {
+    	customSubsInput.click();
+    	customSubsInput.sendKeys(Keys.CONTROL + "a");
+    	customSubsInput.sendKeys(Keys.DELETE);
+    	customSubsInput.sendKeys(subscriptionPrice);
+    	Thread.sleep(500);
+    	
+    	customNonSubsInput.click();
+    	customNonSubsInput.sendKeys(Keys.CONTROL + "a");
+    	customNonSubsInput.sendKeys(Keys.DELETE);
+    	customNonSubsInput.sendKeys(nonSubscriptionPrice);
+    	Thread.sleep(500);
+    }
+
+	 
+    
+//verify the post button is disable when the amount is less than 5.
+    public boolean isPostButtonEnabled() {
+        return postButton.isEnabled();
+    }
+
+    public void clickPostButton() {
+        postButton.click();
+        }
+    public void clickPost()
+    {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='MuiTabs-flexContainer css-k008qs']/.//button[2]/.//a/.//p[.='Posts']")));
+    JavascriptExecutor executor = (JavascriptExecutor) driver;
+	executor.executeScript("arguments[0].click();", post);
+    
+    }
+    public String clickPostProfileButtonTime() {
+    	
+        LocalDateTime clickTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy h:mm a");
+        return clickTime.format(formatter);
+    }
+    
+    public void isPostCreated() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(userTable));
+
+   
+        for (int i = 1; i <= tableRows.size() - 1; i++) {
+        	System.out.println(tableRows.size());
+			WebElement date = driver
+					.findElement(By.xpath("//table[@class='MuiTable-root desktop-table has-actions css-14swh2w']/tbody/tr[" + i + "]/td[6]"));
+
+			String text = date.getText();
+			System.out.println(text);
+			
+			 String click = clickPostProfileButtonTime();
+			 System.out.println(click);
+			
+        if (text.equalsIgnoreCase(click))
+        		{
+        	System.out.println("Post validation successful");
+        	Assert.assertTrue(true);
+        	break;
+        		}
+        else
+        {
+        	System.out.println("else block");
+        	Assert.fail("Post validation unsuccessful");
+        }
+        }
+    }
+    
+}

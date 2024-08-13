@@ -1,0 +1,43 @@
+package tests;
+
+
+import pages.HomePage;
+import pages.LoginPage;
+import pages.NewPostPage;
+import utility.BaseTest;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class TestFanfix extends BaseTest {
+
+    @Test
+    public void createNewPost() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        NewPostPage newPostPage = new NewPostPage(driver);
+
+        // Step 1: Login
+        loginPage.login("testqa@mailinator.com", "123456789");
+
+        // Step 2: Navigate to New Post
+        homePage.navigateToNewPost();
+
+        // Step 3: Write Post Caption
+        newPostPage.writePostCaption("This post is done by automation assignment");
+
+        // Step 4: Add Media
+        newPostPage.addMedia("path/to/media/file.jpg");
+
+        // Step 7: Set Custom Prices
+        newPostPage.setCustomPrices(5, 5);
+        
+        // Step 8: Verify Post Button Enabled/Disabled based on amount
+        Assert.assertTrue(newPostPage.isPostButtonEnabled());
+
+        // Step 9: Post Profile
+        newPostPage.postProfile();
+
+        // Additional verification can be done here to check if the post is successfully created
+    }
+}
+
