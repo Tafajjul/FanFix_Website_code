@@ -40,16 +40,16 @@ public class NewPostPage extends BasePage {
 	@FindBy(xpath = "(//div[@class=\"MuiStack-root css-lmzl00\"])[2]/.//p[.='Custom Time']")
 	WebElement customTime;
 
-	@FindBy(xpath = "(//button[@type=\"button\"])[32]")
+	@FindBy(xpath = "//button[@type='button' and @aria-label='Choose date, selected date is Aug 14, 2024']")
 	WebElement selectDate;
 
 	@FindBy(xpath = "//button[@title='Next month']")
 	WebElement changeMonth;
 
-	@FindBy(xpath = "//div[@class='MuiDayCalendar-weekContainer css-mvmu1r' and @aria-rowindex='1']/.//button[.='1']")
+	@FindBy(xpath = "//div[@class='MuiPickersSlideTransition-root MuiDayCalendar-slideTransition css-1xuxf2l' and @role='presentation']/.//div/.//div/.//button[.='1']")
 	WebElement selectFirstSept;
 
-	@FindBy(xpath = "//div[@role=\"group\"]/.//ul/.//li[.='03']")
+	@FindBy(xpath = "//div[@role='group' and @class='MuiMultiSectionDigitalClock-root css-11cj477']/.//ul/.//li[.='03']")
 	WebElement selectTime1;
 
 	@FindBy(xpath = "//div[@role='group']/.//ul[@aria-label='Select minutes']/.//li[.='30']")
@@ -94,7 +94,7 @@ public class NewPostPage extends BasePage {
 
 	public void customDateselect() throws InterruptedException {
 		selectDate.click();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 
 	}
 
@@ -105,6 +105,11 @@ public class NewPostPage extends BasePage {
 		ja.executeScript("arguments[0].scrollIntoView();", selectTime2);
 		changeMonth.click();
 		System.out.println("navigated to sept month from the calendar");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//div[@class='MuiPickersSlideTransition-root MuiDayCalendar-slideTransition css-1xuxf2l' and @role='presentation']/.//div/.//div/.//button[.='1']")));
+
+		//Thread.sleep(3000);
 		selectFirstSept.click();
 
 		System.out.println("Date selected 1st sept from the calendar");

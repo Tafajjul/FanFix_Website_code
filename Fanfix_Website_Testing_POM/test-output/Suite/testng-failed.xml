@@ -7,7 +7,6 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="selectOkandPostButton"/>
           <include name="dateSelect"/>
         </methods>
       </class> <!-- tests.TestFanfix -->

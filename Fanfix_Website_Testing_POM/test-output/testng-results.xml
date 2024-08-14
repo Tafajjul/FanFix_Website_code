@@ -2,44 +2,44 @@
 <testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-13T16:06:42 IST" name="Suite" finished-at="2024-08-13T16:07:23 IST" duration-ms="41237">
+  <suite started-at="2024-08-14T16:45:35 IST" name="Suite" finished-at="2024-08-14T16:46:16 IST" duration-ms="41356">
     <groups>
     </groups>
-    <test started-at="2024-08-13T16:06:42 IST" name="Test" finished-at="2024-08-13T16:07:23 IST" duration-ms="41237">
+    <test started-at="2024-08-14T16:45:35 IST" name="Test" finished-at="2024-08-14T16:46:16 IST" duration-ms="41356">
       <class name="tests.TestFanfix">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:06:42 IST" name="setUp" finished-at="2024-08-13T16:06:45 IST" duration-ms="3336" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:45:35 IST" name="setUp" finished-at="2024-08-14T16:45:39 IST" duration-ms="3760" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginWebsite()[pri:1, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:06:45 IST" name="loginWebsite" finished-at="2024-08-13T16:06:50 IST" duration-ms="4792" status="PASS">
+        <test-method signature="loginWebsite()[pri:1, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:45:39 IST" name="loginWebsite" finished-at="2024-08-14T16:45:43 IST" duration-ms="4662" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWebsite -->
-        <test-method signature="newPostButton()[pri:2, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:06:50 IST" name="newPostButton" finished-at="2024-08-13T16:06:59 IST" duration-ms="9126" status="PASS">
+        <test-method signature="newPostButton()[pri:2, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:45:43 IST" name="newPostButton" finished-at="2024-08-14T16:45:53 IST" duration-ms="9375" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- newPostButton -->
-        <test-method signature="clickOnFreePost()[pri:3, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:06:59 IST" name="clickOnFreePost" finished-at="2024-08-13T16:06:59 IST" duration-ms="129" status="PASS">
+        <test-method signature="clickOnFreePost()[pri:3, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:45:53 IST" name="clickOnFreePost" finished-at="2024-08-14T16:45:53 IST" duration-ms="125" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickOnFreePost -->
-        <test-method signature="writePost()[pri:4, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:06:59 IST" name="writePost" finished-at="2024-08-13T16:07:08 IST" duration-ms="8232" status="PASS">
+        <test-method signature="writePost()[pri:4, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:45:53 IST" name="writePost" finished-at="2024-08-14T16:46:01 IST" duration-ms="8597" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- writePost -->
-        <test-method signature="clickCustomTime()[pri:5, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:07:08 IST" name="clickCustomTime" finished-at="2024-08-13T16:07:08 IST" duration-ms="343" status="PASS">
+        <test-method signature="clickCustomTime()[pri:5, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:46:01 IST" name="clickCustomTime" finished-at="2024-08-14T16:46:02 IST" duration-ms="413" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickCustomTime -->
-        <test-method signature="dateSelect()[pri:6, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:07:08 IST" name="dateSelect" finished-at="2024-08-13T16:07:19 IST" duration-ms="11333" status="PASS">
+        <test-method signature="dateSelect()[pri:6, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:46:02 IST" name="dateSelect" finished-at="2024-08-14T16:46:12 IST" duration-ms="10465" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dateSelect -->
-        <test-method signature="selectOkandPostButton()[pri:7, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:07:19 IST" name="selectOkandPostButton" finished-at="2024-08-13T16:07:23 IST" duration-ms="3354" status="PASS">
+        <test-method signature="selectOkandPostButton()[pri:7, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:46:12 IST" name="selectOkandPostButton" finished-at="2024-08-14T16:46:16 IST" duration-ms="3350" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- selectOkandPostButton -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-13T16:07:23 IST" name="tearDown" finished-at="2024-08-13T16:07:23 IST" duration-ms="514" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.TestFanfix@1b7cc17c]" started-at="2024-08-14T16:46:16 IST" name="tearDown" finished-at="2024-08-14T16:46:16 IST" duration-ms="536" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
